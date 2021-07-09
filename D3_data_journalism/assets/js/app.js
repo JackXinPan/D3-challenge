@@ -154,7 +154,7 @@ d3.csv("./assets/data/data.csv").then((stateData, err) => {
 
       // Create y scale function
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(stateData, d => d.healthcare)])
+    .domain([4, d3.max(stateData, d => d.healthcare)+2])
     .range([height, 0]);
 
     // Create initial axis functions
@@ -177,9 +177,8 @@ d3.csv("./assets/data/data.csv").then((stateData, err) => {
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
-        .attr("r", 20)
-        .attr("fill", "lightblue")
-        .attr("opacity", ".8");
+        .attr("r", 12)
+        .attr("fill", "skyblue");
 
     // append state abbreviations at same locations as circles
     var abbrGroup = chartGroup.selectAll(".label")
